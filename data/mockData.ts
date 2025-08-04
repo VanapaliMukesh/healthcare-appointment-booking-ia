@@ -1,0 +1,121 @@
+import type { Doctor } from "@/types"
+
+export const mockDoctors: Doctor[] = [
+  {
+    id: "1",
+    name: "Dr. Sarah Johnson",
+    specialization: "Cardiologist",
+    profileImage: "/placeholder.svg?height=200&width=200",
+    isAvailable: true,
+    experience: 12,
+    rating: 4.8,
+    location: "New York Medical Center",
+    bio: "Dr. Sarah Johnson is a board-certified cardiologist with over 12 years of experience in treating heart conditions. She specializes in preventive cardiology and interventional procedures.",
+    availableSlots: [
+      { id: "1-1", date: getDateString(1), time: "09:00", isBooked: false },
+      { id: "1-2", date: getDateString(1), time: "10:30", isBooked: false },
+      { id: "1-3", date: getDateString(1), time: "14:00", isBooked: false },
+      { id: "1-4", date: getDateString(2), time: "09:00", isBooked: false },
+      { id: "1-5", date: getDateString(2), time: "11:00", isBooked: false },
+      { id: "1-6", date: getDateString(3), time: "10:00", isBooked: false },
+      { id: "1-7", date: getDateString(5), time: "15:30", isBooked: false },
+    ],
+  },
+  {
+    id: "2",
+    name: "Dr. Michael Chen",
+    specialization: "Dermatologist",
+    profileImage: "/placeholder.svg?height=200&width=200",
+    isAvailable: true,
+    experience: 8,
+    rating: 4.6,
+    location: "Downtown Skin Clinic",
+    bio: "Dr. Michael Chen is a skilled dermatologist specializing in both medical and cosmetic dermatology. He has extensive experience in treating skin conditions and aesthetic procedures.",
+    availableSlots: [
+      { id: "2-1", date: getDateString(1), time: "10:00", isBooked: false },
+      { id: "2-2", date: getDateString(1), time: "13:30", isBooked: false },
+      { id: "2-3", date: getDateString(2), time: "15:00", isBooked: false },
+      { id: "2-4", date: getDateString(3), time: "10:00", isBooked: false },
+      { id: "2-5", date: getDateString(4), time: "14:30", isBooked: false },
+      { id: "2-6", date: getDateString(7), time: "09:30", isBooked: false },
+    ],
+  },
+  {
+    id: "3",
+    name: "Dr. Emily Rodriguez",
+    specialization: "Pediatrician",
+    profileImage: "/placeholder.svg?height=200&width=200",
+    isAvailable: false,
+    experience: 15,
+    rating: 4.9,
+    location: "Children's Health Center",
+    bio: "Dr. Emily Rodriguez is a dedicated pediatrician with 15 years of experience caring for children from infancy through adolescence. She is passionate about preventive care and child development.",
+    availableSlots: [
+      { id: "3-1", date: getDateString(5), time: "09:30", isBooked: false },
+      { id: "3-2", date: getDateString(6), time: "11:00", isBooked: false },
+      { id: "3-3", date: getDateString(7), time: "14:00", isBooked: false },
+    ],
+  },
+  {
+    id: "4",
+    name: "Dr. James Wilson",
+    specialization: "Orthopedic Surgeon",
+    profileImage: "/placeholder.svg?height=200&width=200",
+    isAvailable: true,
+    experience: 20,
+    rating: 4.7,
+    location: "Sports Medicine Institute",
+    bio: "Dr. James Wilson is an experienced orthopedic surgeon specializing in sports medicine and joint replacement. He has helped thousands of patients regain mobility and return to active lifestyles.",
+    availableSlots: [
+      { id: "4-1", date: getDateString(1), time: "08:00", isBooked: false },
+      { id: "4-2", date: getDateString(2), time: "12:00", isBooked: false },
+      { id: "4-3", date: getDateString(3), time: "08:00", isBooked: false },
+      { id: "4-4", date: getDateString(4), time: "13:00", isBooked: false },
+      { id: "4-5", date: getDateString(6), time: "16:00", isBooked: false },
+    ],
+  },
+  {
+    id: "5",
+    name: "Dr. Lisa Thompson",
+    specialization: "Neurologist",
+    profileImage: "/placeholder.svg?height=200&width=200",
+    isAvailable: true,
+    experience: 10,
+    rating: 4.5,
+    location: "Brain & Spine Center",
+    bio: "Dr. Lisa Thompson is a neurologist with expertise in treating neurological disorders including migraines, epilepsy, and movement disorders. She is committed to providing comprehensive neurological care.",
+    availableSlots: [
+      { id: "5-1", date: getDateString(2), time: "11:00", isBooked: false },
+      { id: "5-2", date: getDateString(3), time: "15:30", isBooked: false },
+      { id: "5-3", date: getDateString(4), time: "09:30", isBooked: false },
+      { id: "5-4", date: getDateString(5), time: "16:00", isBooked: false },
+      { id: "5-5", date: getDateString(8), time: "10:30", isBooked: false },
+    ],
+  },
+  {
+    id: "6",
+    name: "Dr. Robert Kim",
+    specialization: "Psychiatrist",
+    profileImage: "/placeholder.svg?height=200&width=200",
+    isAvailable: true,
+    experience: 14,
+    rating: 4.8,
+    location: "Mental Health Wellness Center",
+    bio: "Dr. Robert Kim is a compassionate psychiatrist specializing in anxiety, depression, and mood disorders. He believes in a holistic approach to mental health treatment.",
+    availableSlots: [
+      { id: "6-1", date: getDateString(1), time: "12:30", isBooked: false },
+      { id: "6-2", date: getDateString(2), time: "16:00", isBooked: false },
+      { id: "6-3", date: getDateString(4), time: "10:30", isBooked: false },
+      { id: "6-4", date: getDateString(5), time: "15:00", isBooked: false },
+      { id: "6-5", date: getDateString(7), time: "11:30", isBooked: false },
+      { id: "6-6", date: getDateString(9), time: "14:00", isBooked: false },
+    ],
+  },
+]
+
+// Helper function to generate date strings relative to today
+function getDateString(daysFromToday: number): string {
+  const date = new Date()
+  date.setDate(date.getDate() + daysFromToday)
+  return date.toISOString().split("T")[0]
+}
